@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#050811] text-slate-300 antialiased font-sans select-none overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.03) 0%, transparent 40%);
+  }
+
+  /* Custom high-performance terminal style scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-[#060a16];
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+  }
+}
+
+/* Custom Cyber/Sci-Fi Utility Styles */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Ambient Pulsing Glow Indicators */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.2);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+  }
+}
+
+.pulse-neon-teal {
+  animation: neonPulse 2s infinite ease-in-out;
+}
+
+@keyframes errorPulse {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.7);
+  }
+}
+
+.pulse-neon-rose {
+  animation: errorPulse 1.5s infinite ease-in-out;
+}
+
+/* Soft grid overlays inspired by Palantir & Vercel design */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* ----------------------------------------------------
+   LIGHT MODE DESIGN SYSTEM OVERRIDES 
+   ---------------------------------------------------- */
+:root:not(.dark) {
+  --bg-page: #f1f5f9; /* slate-100 */
+  --bg-card: rgba(255, 255, 255, 0.85); /* glass white */
+  --bg-card-solid: #ffffff;
+  --text-primary: #0f172a; /* slate-900 */
+  --text-secondary: #334155; /* slate-700 */
+  --text-muted: #64748b; /* slate-500 */
+  --border-primary: rgba(15, 23, 42, 0.08);
+  --border-secondary: rgba(15, 23, 42, 0.12);
+  --bg-sidebar: #ffffff;
+  --bg-sidebar-hover: rgba(15, 23, 42, 0.04);
+}
+
+:root:not(.dark) body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-secondary) !important;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.02) 0%, transparent 40%) !important;
+}
+
+/* Page containers bg override */
+:root:not(.dark) .bg-\[\#050811\],
+:root:not(.dark) .bg-\[\#05070c\] {
+  background-color: var(--bg-page) !important;
+}
+
+/* Sidebar override */
+:root:not(.dark) aside {
+  background-color: var(--bg-sidebar) !important;
+  border-right-color: var(--border-primary) !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+:root:not(.dark) aside .border-b,
+:root:not(.dark) aside .border-t {
+  border-color: var(--border-primary) !important;
+}
+
+:root:not(.dark) aside h1 {
+  color: #1e293b !important;
+}
+
+/* Sidebar navigation item override */
+:root:not(.dark) aside nav button {
+  color: #475569 !important;
+}
+
+:root:not(.dark) aside nav button:hover {
+  background-color: var(--bg-sidebar-hover) !important;
+  color: #0f172a !important;
+}
+
+:root:not(.dark) aside nav button.text-slate-100 {
+  color: #0f172a !important;
+}
+
+/* Sidebar active tab indicator overlay */
+:root:not(.dark) aside nav button div[layoutId="activeTabBg"],
+:root:not(.dark) aside nav button .absolute {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Sidebar profile box */
+:root:not(.dark) aside .bg-slate-900\/40,
+:root:not(.dark) aside .bg-slate-900 {
+  background-color: #f8fafc !important;
+  border-color: var(--border-primary) !important;
+}
+
+/* Header overrides */
+:root:not(.dark) header {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-bottom-color: var(--border-primary) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+:root:not(.dark) header h2 {
+  color: #475569 !important;
+}
+
+:root:not(.dark) header button {
+  background-color: #ffffff !important;
+  border-color: var(--border-primary) !important;
+}
+
+:root:not(.dark) header button:hover {
+  background-color: #f8fafc !important;
+}
+
+:root:not(.dark) header input {
+  background-color: #ffffff !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root:not(.dark) header input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Main Dashboard Cards */
+:root:not(.dark) .bg-slate-950\/40,
+:root:not(.dark) .bg-slate-900\/30,
+:root:not(.dark) .bg-\[\#060a15\]\/40,
+:root:not(.dark) .bg-\[\#03060c\],
+:root:not(.dark) .bg-slate-900\/40,
+:root:not(.dark) .bg-slate-950\/20,
+:root:not(.dark) .bg-\[\#03060b\],
+:root:not(.dark) .bg-\[\#03060b\]\/40,
+:root:not(.dark) .bg-slate-900,
+:root:not(.dark) .bg-slate-950,
+:root:not(.dark) .bg-\[\#0b101c\]\/80 {
+  background-color: var(--bg-card-solid) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Card highlight hovering effects */
+:root:not(.dark) .hover\:border-slate-800\/80:hover {
+  border-color: var(--border-secondary) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Card titles and text content */
+:root:not(.dark) h1,
+:root:not(.dark) h2, 
+:root:not(.dark) h3, 
+:root:not(.dark) h4,
+:root:not(.dark) .text-slate-100, 
+:root:not(.dark) .text-slate-200 {
+  color: var(--text-primary) !important;
+}
+
+:root:not(.dark) p, 
+:root:not(.dark) .text-slate-300, 
+:root:not(.dark) .text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+:root:not(.dark) .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+/* Inputs, Textareas, and Dropdown selects on Settings/Tasks/Teams pages */
+:root:not(.dark) input,
+:root:not(.dark) select,
+:root:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-secondary) !important;
+}
+
+:root:not(.dark) input:focus,
+:root:not(.dark) select:focus,
+:root:not(.dark) textarea:focus {
+  border-color: #06b6d4 !important; /* cyan accent focus */
+}
+
+/* Metric ticking panels and cards footer rules */
+:root:not(.dark) .border-t, 
+:root:not(.dark) .border-b, 
+:root:not(.dark) .border-r {
+  border-color: var(--border-primary) !important;
+}
+
+/* Action Items lists row and counters highlights */
+:root:not(.dark) .bg-slate-900\/50 {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+  border-color: var(--border-secondary) !important;
+}
+
+:root:not(.dark) .bg-slate-900\/60 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+:root:not(.dark) .bg-slate-950\/10 {
+  background-color: rgba(15, 23, 42, 0.015) !important;
+}
+
+/* Grid layout overlays backgrounds */
+:root:not(.dark) .grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px) !important;
+}
+
+/* SVG Telemetry Graphs */
+:root:not(.dark) svg text {
+  fill: #475569 !important;
+}
+
+:root:not(.dark) svg line {
+  stroke: rgba(15, 23, 42, 0.06) !important;
+}
+
+:root:not(.dark) svg circle[fill="#0b0f19"] {
+  fill: #ffffff !important;
+}
+
+/* Ticking Counter specific highlights */
+:root:not(.dark) .bg-blue-500\/5, 
+:root:not(.dark) .bg-rose-500\/5, 
+:root:not(.dark) .bg-emerald-500\/5, 
+:root:not(.dark) .bg-amber-500\/5,
+:root:not(.dark) .bg-teal-500\/5 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ----------------------------------------------------
+   ADDITIONAL LIGHT MODE OVERRIDES AND POLISH
+   ---------------------------------------------------- */
+
+/* Custom panel / container backgrounds */
+:root:not(.dark) .bg-\[\#0c1222\],
+:root:not(.dark) .bg-\[\#0c1222\]\/40,
+:root:not(.dark) .bg-\[\#080d1a\]\/20,
+:root:not(.dark) .bg-\[\#090e1a\]\/30,
+:root:not(.dark) .bg-\[\#05080e\]\/40,
+:root:not(.dark) .bg-\[\#060a15\]\/40,
+:root:not(.dark) .bg-\[\#03060c\]\/40,
+:root:not(.dark) .bg-\[\#0b0f19\],
+:root:not(.dark) .bg-\[\#070b13\]\/60,
+:root:not(.dark) .bg-\[\#070b13\]\/80 {
+  background-color: var(--bg-card-solid) !important;
+  border-color: var(--border-primary) !important;
+}
+
+/* Secondary Container Slate Opacities */
+:root:not(.dark) .bg-slate-900\/40,
+:root:not(.dark) .bg-slate-900\/50,
+:root:not(.dark) .bg-slate-900\/60,
+:root:not(.dark) .bg-slate-900\/80 {
+  background-color: var(--bg-sidebar-hover) !important;
+}
+
+:root:not(.dark) .bg-slate-950\/20,
+:root:not(.dark) .bg-slate-950\/30,
+:root:not(.dark) .bg-slate-950\/50,
+:root:not(.dark) .bg-slate-950\/60 {
+  background-color: rgba(15, 23, 42, 0.03) !important;
+}
+
+/* Soft Colored Badge & Button Background Overrides */
+:root:not(.dark) .bg-emerald-950\/20,
+:root:not(.dark) .bg-emerald-950\/10 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+:root:not(.dark) .bg-emerald-500\/10,
+:root:not(.dark) .bg-emerald-500\/20,
+:root:not(.dark) .bg-emerald-500\/5 {
+  background-color: rgba(16, 185, 129, 0.08) !important;
+}
+
+:root:not(.dark) .bg-rose-950\/30,
+:root:not(.dark) .bg-rose-950\/10,
+:root:not(.dark) .bg-rose-950\/5 {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+:root:not(.dark) .bg-amber-950\/20,
+:root:not(.dark) .bg-amber-950\/10 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+:root:not(.dark) .bg-blue-950\/10 {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+:root:not(.dark) .bg-teal-950\/20,
+:root:not(.dark) .bg-teal-950\/10 {
+  background-color: rgba(20, 184, 166, 0.1) !important;
+}
+
+:root:not(.dark) .bg-cyan-500\/10,
+:root:not(.dark) .bg-cyan-500\/20,
+:root:not(.dark) .bg-cyan-500\/5,
+:root:not(.dark) .bg-cyan-950\/10 {
+  background-color: rgba(6, 182, 212, 0.08) !important;
+}
+
+/* High Contrast Colored Text for Readability */
+:root:not(.dark) .text-teal-400 {
+  color: #0f766e !important; /* teal-700 */
+}
+:root:not(.dark) .text-emerald-400 {
+  color: #15803d !important; /* emerald-700 */
+}
+:root:not(.dark) .text-rose-400 {
+  color: #be123c !important; /* rose-700 */
+}
+:root:not(.dark) .text-amber-400 {
+  color: #b45309 !important; /* amber-700 */
+}
+:root:not(.dark) .text-blue-400 {
+  color: #1d4ed8 !important; /* blue-700 */
+}
+:root:not(.dark) .text-indigo-400 {
+  color: #4338ca !important; /* indigo-700 */
+}
+:root:not(.dark) .text-cyan-400 {
+  color: #0369a1 !important; /* cyan-700 / sky-700 style */
+}
+
+/* Hardcoded Dark Border Overrides */
+:root:not(.dark) .border-slate-900,
+:root:not(.dark) .border-slate-900\/60,
+:root:not(.dark) .border-slate-900\/50,
+:root:not(.dark) .border-slate-800,
+:root:not(.dark) .border-slate-800\/80,
+:root:not(.dark) .border-slate-800\/30,
+:root:not(.dark) .border-slate-850,
+:root:not(.dark) .border-slate-700,
+:root:not(.dark) .border-slate-700\/50 {
+  border-color: var(--border-primary) !important;
+}
+
+/* Active Button Overrides in Light Mode (Alerts / Incident Controls) */
+:root:not(.dark) .bg-amber-600\/10.border-amber-500\/40 {
+  background-color: rgba(245, 158, 11, 0.08) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+  color: #b45309 !important; /* amber-700 */
+}
+:root:not(.dark) .bg-teal-600\/10.border-teal-500\/40 {
+  background-color: rgba(20, 184, 166, 0.08) !important;
+  border-color: rgba(20, 184, 166, 0.25) !important;
+  color: #0f766e !important; /* teal-700 */
+}
+:root:not(.dark) .bg-rose-500\/10.border-rose-500\/20 {
+  background-color: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.25) !important;
+  color: #be123c !important; /* rose-700 */
+}
+
+/* ====================================================
+   TEAMS PAGE BUTTON COLOR REFINEMENTS
+   ==================================================== */
+
+/* Dispatch Pager Alarm Active Button (Standard & Low BW) */
+:root .bg-indigo-600\/10 {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  color: #c7d2fe !important; /* indigo-200 for high readability in dark mode */
+}
+
+:root:not(.dark) .bg-indigo-600\/10 {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  color: #4338ca !important; /* indigo-700 for light mode */
+}
+
+:root:not(.dark) .bg-indigo-600\/10:hover {
+  background-color: #4f46e5 !important; /* solid indigo hover in light mode */
+  border-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Dispatch Pager Alarm Disabled/Offline Button (TeamsPage.jsx Line 305) */
+:root .bg-slate-900\/40.border-slate-950 {
+  background-color: rgba(15, 23, 42, 0.3) !important;
+  border-color: rgba(15, 23, 42, 0.5) !important;
+  color: #475569 !important; /* slate-500 disabled text in dark mode */
+}
+
+:root:not(.dark) .bg-slate-900\/40.border-slate-950 {
+  background-color: #f1f5f9 !important; /* soft disabled background in light mode */
+  border-color: var(--border-primary) !important;
+  color: #94a3b8 !important; /* muted slate-400 disabled text */
+}
+
+
+
