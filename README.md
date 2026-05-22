@@ -47,3 +47,14 @@ Every element inside the application is dynamically translated on-the-fly via a 
 1. **Buttery-Smooth 60fps Counters**: Traditional React state intervals cause severe layout thrashing. The quick KPI cards use high-performance `requestAnimationFrame` loops for numerical count-up interpolation.
 2. **Lightweight SVGs**: Instead of loading heavy charting packages (like Chart.js or Recharts) which slow down page speeds, anomaly trend charts are rendered as inline responsive SVG sparkline coordinates.
 3. **Focus States & Portals**: Focus is tracked through a global Context, letting components animate their state transitions (e.g., active highlight boxes) using layout animation mechanics.
+
+
+## AI USE LOG
+
+This project was developed with assistance from AI-powered tools for improving productivity and workflow.
+
+- **Claude AI** — Used for frontend design inspiration and UI improvements.
+- **ChatGPT** — Used for documentation, debugging support, README creation, and development guidance.
+- **Antigravity Software** — Used during the development and software workflow process.
+
+All implementation, integration, and final customization were completed by me.
